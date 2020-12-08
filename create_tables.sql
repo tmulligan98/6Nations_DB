@@ -50,9 +50,7 @@ caps INT,
 club VARCHAR(20) NOT NULL,
 age INT NOT NULL CHECK (age >= 18),
 leadership VARCHAR(20) DEFAULT NULL,
-PRIMARY KEY (id),
-FOREIGN KEY (country_id) REFERENCES Country(abreviation)
-
+PRIMARY KEY (id)
 /*Removed position attribute. Better to have a separate relation since it's multivalued*/
 );
 
