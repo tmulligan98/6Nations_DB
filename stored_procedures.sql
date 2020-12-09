@@ -84,9 +84,9 @@ DELIMITER ;
 
 
 /*Stored procedure for one_captain*/
-DROP PROCEDURE IF EXISTS check_score_time;
+DROP PROCEDURE IF EXISTS check_one_captain;
 DELIMITER $$
-CREATE PROCEDURE check_score_time(
+CREATE PROCEDURE check_one_captain(
 leadership VARCHAR(50),
 country_id CHAR(3)
 )
