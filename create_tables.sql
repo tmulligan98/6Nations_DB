@@ -2,12 +2,12 @@ DROP SCHEMA IF EXISTS SixNations;
 CREATE SCHEMA SixNations;
 USE SixNations;
 
-/*Need to use trigger to check date of birth of player*/
+
 
 CREATE TABLE Country ( 
 country_name VARCHAR(20) NOT NULL, 
 abreviation CHAR(3) NOT NULL, 
-nickname varchar (20),
+nickname VARCHAR (20),
 venue_id INT NOT NULL,
 PRIMARY KEY(abreviation), 
 KEY(country_name),

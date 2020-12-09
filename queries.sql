@@ -2,7 +2,7 @@
 /*Update the aviva to have an artificial surface instead of grass*/
 UPDATE Venue SET surface = "artifical" WHERE id = 111;
 
-/*Update the leadership of the Irish Rugby team, make Peter O'Mahoney the captain*/
+/*Update the leadership of the Irish Rugby team, make Peter O'Mahoney the captain. Take away Sexton's leadership*/
 UPDATE Player SET leadership = "NULL" WHERE id = 1;
 UPDATE Player SET leadership = "captain" WHERE id = 7;
 

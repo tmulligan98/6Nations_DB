@@ -5,9 +5,9 @@
     
     ADD trigger: Country-Captain-Coach*/
     
-DROP TRIGGER IF EXISTS score_time_insert;
+DROP TRIGGER IF EXISTS score_time_INSERT;
 DELIMITER $$
-CREATE TRIGGER score_time_insert
+CREATE TRIGGER score_time_INSERT
 BEFORE INSERT ON Score_Details
 FOR EACH ROW 
 BEGIN
@@ -17,9 +17,9 @@ $$
 DELIMITER ;
 
 
-DROP TRIGGER IF EXISTS score_time_update;
+DROP TRIGGER IF EXISTS score_time_UPDATE;
 DELIMITER $$
-CREATE TRIGGER score_time_update
+CREATE TRIGGER score_time_UPDATE
 BEFORE UPDATE ON Score_Details
 FOR EACH ROW 
 BEGIN
@@ -43,14 +43,14 @@ $$
 DELIMITER ;
 
 
-DROP TRIGGER IF EXISTS only_one_captain;
+DROP TRIGGER IF EXISTS only_one_captain_INSERT;
 DELIMITER $$
-CREATE TRIGGER only_one_captain
+CREATE TRIGGER only_one_captain_INSERT
 BEFORE INSERT ON Player
 FOR EACH ROW
 BEGIN
 
-	CALL check_score_time(NEW.leadership, NEW.country_id);
+	CALL check_one_captain(NEW.leadership, NEW.country_id);
 
 
 END;
@@ -58,14 +58,14 @@ $$
 DELIMITER ;
 
 
-DROP TRIGGER IF EXISTS only_one_captain;
+DROP TRIGGER IF EXISTS only_one_captain_UPDATE;
 DELIMITER $$
-CREATE TRIGGER only_one_captain
+CREATE TRIGGER only_one_captain_UPDATE
 BEFORE UPDATE ON Player
 FOR EACH ROW
 BEGIN
 
-	CALL check_score_time(NEW.leadership, NEW.country_id);
+	CALL check_one_captain(NEW.leadership, NEW.country_id);
 
 
 END;
