@@ -21,9 +21,6 @@ DELIMITER ;
 
 
 
-
-
-
 /*Stored procedure for checking that trophy is associated to correct country*/
 DROP PROCEDURE IF EXISTS check_current_holder;
 DELIMITER $$
@@ -82,5 +79,27 @@ END
 $$
 DELIMITER ;
 
+
+
+
+
+/*Stored procedure for one_captain*/
+DROP PROCEDURE IF EXISTS check_score_time;
+DELIMITER $$
+CREATE PROCEDURE check_score_time(
+leadership VARCHAR(50),
+country_id CHAR(3)
+)
+BEGIN
+	
+	
+    IF EXISTS(SELECT Player.leadership FROM Player WHERE Player.leadership = "Captain" AND Player.country_id = country_id) THEN
+		IF leadership = "Captain" THEN
+		SIGNAL sqlstate '45000' set message_text = 'Only one captain is allowed per team';
+        END IF;
+	END IF;
+END
+$$
+DELIMITER ;
 
  

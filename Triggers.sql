@@ -50,13 +50,7 @@ BEFORE INSERT ON Player
 FOR EACH ROW
 BEGIN
 
-	DECLARE leadership_role VARCHAR(50);
-	
-    IF EXISTS(SELECT Player.leadership FROM Player WHERE Player.leadership = "Captain" AND Player.country_id = NEW.country_id) THEN
-		IF NEW.leadership = "Captain" THEN
-		SIGNAL sqlstate '45000' set message_text = 'Only one captain is allowed per team';
-        END IF;
-	END IF;
+	CALL check_score_time(NEW.leadership, NEW.country_id);
 
 
 END;
@@ -64,5 +58,18 @@ $$
 DELIMITER ;
 
 
+DROP TRIGGER IF EXISTS only_one_captain;
+DELIMITER $$
+CREATE TRIGGER only_one_captain
+BEFORE UPDATE ON Player
+FOR EACH ROW
+BEGIN
+
+	CALL check_score_time(NEW.leadership, NEW.country_id);
+
+
+END;
+$$
+DELIMITER ;
 
 
