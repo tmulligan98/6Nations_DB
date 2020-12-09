@@ -27,7 +27,7 @@ INSERT INTO Venue VALUES(116, "Grass", "Paris", "open", "Stade de France");
 INSERT INTO Venue VALUES(117, "Artificial", "Paris", "closed", "Paris La Defense Arena");
 
 /*Country*/
-INSERT INTO Country VALUES("Ireland", "IRL", NULL, 111);
+INSERT INTO Country VALUES("Ireland", "IRE", NULL, 111);
 INSERT INTO Country VALUES("England", "ENG", NULL, 112);
 INSERT INTO Country VALUES("Wales", "WAL", NULL, 113);
 INSERT INTO Country VALUES("Scotland", "SCO", NULL, 114);
@@ -51,29 +51,29 @@ INSERT INTO Referee(Fname, Sname, country_of_birth, age) VALUES("Matthew", "Carl
 
 /*Removed positions from these inserts. Now in separate table.*/
 INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
-VALUES("Johnny", "Sexton", "IRL", "1985-07-11", 94, "Leinster", 35, "captain");
-INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, position, age, leadership) 
+VALUES("Johnny", "Sexton", "IRE", "1985-07-11", 94, "Leinster", 35, "captain");
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
 VALUES("Owen", "Farrell", "ENG", "1991-10-24", NULL, "Saracens", 29, "captain");
-INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, position, age, leadership) 
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
 VALUES("Alun", "Wyn Jones", "WAL", "1985-10-9", 149, "Ospreys", 35, "captain");
-INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, position, age, leadership) 
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
 VALUES("Stuart", "Hogg", "SCO", "1992-06-24", NULL, "Exeter Chiefs", 28, "captain");
-INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, position, age, leadership) 
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
 VALUES("Charles", "Ollivon", "FRA", "1993-05-11", NULL, "Toulon", 27, "captain");
-INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, position, age, leadership) 
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
 VALUES("Luca", "Bigi", "ITA", "1991-04-19", NULL, "Zebre", 29, "captain");
-INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, position, age, leadership) 
-VALUES("Peter", "O'Mahoney", "IRL", "1989-10-17", 67, "Munster", 31, "vice-captain");
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
+VALUES("Peter", "O'Mahoney", "IRE", "1989-10-17", 67, "Munster", 31, "vice-captain");
 
-INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, position, age, leadership) 
-VALUES("Josh", "Adams", "Wal", "1995-04-21", NULL, "Cardiff Blues", 25, NULL);
-INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, position, age, leadership) 
-VALUES("Jordan", "Larmour", "IRL", "1997-06-10", 21, "Leinster", 23, NULL);
-INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, position, age, leadership) 
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
+VALUES("Josh", "Adams", "WAL", "1995-04-21", NULL, "Cardiff Blues", 25, NULL);
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
+VALUES("Jordan", "Larmour", "IRE", "1997-06-10", 21, "Leinster", 23, NULL);
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
 VALUES("Ellis", "Genge", "ENG", "1995-02-16", NULL, "Leicster", 25, NULL);
-INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, position, age, leadership) 
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
 VALUES("Romain", "Ntamack", "FRA", "1999-05-1", NULL, "Toulouse", 21, NULL);
-INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, position, age, leadership) 
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
 VALUES("Dan", "Biggar", "WAL", "1989-10-16", 79, "Northampton", 31, "vice-captain");
 
 
@@ -91,7 +91,7 @@ INSERT INTO Rugby_Match VALUES(1118, 113, "WAL", "FRA",  "2020-02-22 16:45:00", 
 
 /*Coach*/
 
-INSERT INTO Coach(country_id, country_of_origin, Fname, Sname, coach_role) VALUES("IRL", "England", "Andy", "Farrell", "Head Coach");
+INSERT INTO Coach(country_id, country_of_origin, Fname, Sname, coach_role) VALUES("IRE", "England", "Andy", "Farrell", "Head Coach");
 INSERT INTO Coach(country_id, country_of_origin, Fname, Sname, coach_role) VALUES("ENG", "Australia", "Eddie", "Jones", "Head Coach");
 INSERT INTO Coach(country_id, country_of_origin, Fname, Sname, coach_role) VALUES("SCO", "Scotland", "Gregor", "Townsend", "Head Coach");
 INSERT INTO Coach(country_id, country_of_origin, Fname, Sname, coach_role) VALUES("WAL", "Wales", "Wayne", "Pivac", "Head Coach");
@@ -101,15 +101,15 @@ INSERT INTO Coach(country_id, country_of_origin, Fname, Sname, coach_role) VALUE
 
 /*Trophy*/
 
-INSERT INTO Trophy VALUES("Championship Trophy", "England", 1993);
-INSERT INTO Trophy VALUES("Triple Crown", "England", 1993);
-INSERT INTO Trophy VALUES("Grand Slam", "England", NULL);
-INSERT INTO Trophy VALUES("Calcutta Cup", "England", 1879);
-INSERT INTO Trophy VALUES("Millenium Trophy", "England", 1988);
-INSERT INTO Trophy VALUES("Centenary Quaich", "Ireland", 1989);
-INSERT INTO Trophy VALUES("Giuseppe Garibaldi Trophy", "France", 2007);
-INSERT INTO Trophy VALUES("Auld Alliance Trophy", "Scotland", 2018);
-INSERT INTO Trophy VALUES("Doddie Weir", "Scotland", 2018);
+INSERT INTO Trophy VALUES("Championship Trophy", "ENG", 1993);
+INSERT INTO Trophy VALUES("Triple Crown", "ENG", 1993);
+INSERT INTO Trophy VALUES("Grand Slam", "ENG", NULL);
+INSERT INTO Trophy VALUES("Calcutta Cup", "ENG", 1879);
+INSERT INTO Trophy VALUES("Millenium Trophy", "ENG", 1988);
+INSERT INTO Trophy VALUES("Centenary Quaich", "IRE", 1989);
+INSERT INTO Trophy VALUES("Giuseppe Garibaldi Trophy", "FRA", 2007);
+INSERT INTO Trophy VALUES("Auld Alliance Trophy", "SCO", 2018);
+INSERT INTO Trophy VALUES("Doddie Weir", "SCO", 2018);	/*Will fail.*/
 
 /*Match_Referees*/
 

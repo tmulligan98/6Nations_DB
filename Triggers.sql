@@ -5,75 +5,64 @@
     
     ADD trigger: Country-Captain-Coach*/
     
-DROP TRIGGER IF EXISTS score_time;
+DROP TRIGGER IF EXISTS score_time_insert;
 DELIMITER $$
-CREATE TRIGGER score_time
-BEFORE INSERT ON score_details
+CREATE TRIGGER score_time_insert
+BEFORE INSERT ON Score_Details
 FOR EACH ROW 
 BEGIN
-	DECLARE match_finish_time TINYINT;
-    SET @match_finish_time = (SELECT Rugby_Match.match_length FROM Rugby_Match WHERE Rugby_Match.id = NEW.match_id);
-    IF (NEW.time_scored > match_finish_time) THEN
-		SIGNAL sqlstate '45000' set message_text = 'Cannot set score time greater than match length';
-    END IF;
-
+	CALL check_score_time(NEW.match_id, NEW.time_scored);
 END;
 $$
 DELIMITER ;
+
+
+DROP TRIGGER IF EXISTS score_time_update;
+DELIMITER $$
+CREATE TRIGGER score_time_update
+BEFORE UPDATE ON Score_Details
+FOR EACH ROW 
+BEGIN
+	CALL check_score_time(NEW.match_id, NEW.time_scored);
+END;
+$$
+DELIMITER ;
+
 
 DROP TRIGGER IF EXISTS trophy_holder;
 DELIMITER $$
 CREATE TRIGGER trophy_holder
-BEFORE INSERT ON trophy
+BEFORE INSERT ON Trophy
 FOR EACH ROW
 BEGIN
-    DECLARE t1 VARCHAR(50) DEFAULT "Calcutta Cup";
-    DECLARE t2 VARCHAR(50) DEFAULT "Millenium Trophy";
-    DECLARE t3 VARCHAR(50) DEFAULT "Centenary Quaich";
-    DECLARE t4 VARCHAR(50) DEFAULT "Giuseppe Garibaldi Trophy";
-    DECLARE t5 VARCHAR(50) DEFAULT "Auld Alliance Trophy";
-    DECLARE t6 VARCHAR(50) DEFAULT "Doddie Weir Cup";
-    
-	
-	IF (NEW.trophy_name = t1) THEN 
-		IF (NEW.current_holder != "ENG" AND NEW.current_holder != "SCO") THEN 
-			SIGNAL sqlstate '45000' set message_text = 'Cannot set score time greater than match length';
-		END IF;
-	END IF;
-    
-    IF (NEW.trophy_name = t2) THEN 
-		IF (NEW.current_holder != "ENG" AND NEW.current_holder != "IRE") THEN 
-			SIGNAL sqlstate '45000' set message_text = 'Cannot set score time greater than match length';
-		END IF;
-	END IF;
-    
-    IF (NEW.trophy_name = t3) THEN 
-		IF (NEW.current_holder != "IRE" AND NEW.current_holder != "SCO") THEN 
-			SIGNAL sqlstate '45000' set message_text = 'Cannot set score time greater than match length';
-		END IF;
-	END IF;
-    
-    IF (NEW.trophy_name = t4) THEN 
-		IF (NEW.current_holder != "FRA" AND NEW.current_holder != "ITA") THEN 
-			SIGNAL sqlstate '45000' set message_text = 'Cannot set score time greater than match length';
-		END IF;
-	END IF;
-    
-    IF (NEW.trophy_name = t5) THEN 
-		IF (NEW.current_holder != "FRA" AND NEW.current_holder != "SCO") THEN 
-			SIGNAL sqlstate '45000' set message_text = 'Cannot set score time greater than match length';
-		END IF;
-	END IF;
-    
-    IF (NEW.trophy_name = t6) THEN 
-		IF (NEW.current_holder != "WAL" AND NEW.current_holder != "SCO") THEN 
-			SIGNAL sqlstate '45000' set message_text = 'Cannot set score time greater than match length';
-		END IF;
-	END IF;
+   CALL check_current_holder(NEW.trophy_name, NEW.current_holder);
     
 
 END;
 $$
 DELIMITER ;
+
+
+DROP TRIGGER IF EXISTS only_one_captain;
+DELIMITER $$
+CREATE TRIGGER only_one_captain
+BEFORE INSERT ON Player
+FOR EACH ROW
+BEGIN
+
+	DECLARE leadership_role VARCHAR(50);
+	
+    IF EXISTS(SELECT Player.leadership FROM Player WHERE Player.leadership = "Captain" AND Player.country_id = NEW.country_id) THEN
+		IF NEW.leadership = "Captain" THEN
+		SIGNAL sqlstate '45000' set message_text = 'Only one captain is allowed per team';
+        END IF;
+	END IF;
+
+
+END;
+$$
+DELIMITER ;
+
+
 
 

@@ -13,7 +13,7 @@ PRIMARY KEY(abreviation),
 KEY(country_name),
 KEY(nickname),
 CONSTRAINT check_country_abbr CHECK
-(abreviation IN ('IRL', 'ENG', 'SCO', 'WAL', 'FRA', 'ITA')),
+(abreviation IN ('IRE', 'ENG', 'SCO', 'WAL', 'FRA', 'ITA')),
 CONSTRAINT check_country_name CHECK
 (country_name IN ('Ireland', 'England', 'Scotland', 'Wales', 'France', 'Italy'))
 );
@@ -49,7 +49,7 @@ date_of_birth DATE DEFAULT NULL,
 caps INT,
 club VARCHAR(20) NOT NULL,
 age INT NOT NULL CHECK (age >= 18),
-leadership VARCHAR(20) DEFAULT NULL,
+leadership VARCHAR(50) DEFAULT NULL,
 PRIMARY KEY (id)
 /*Removed position attribute. Better to have a separate relation since it's multivalued*/
 );
