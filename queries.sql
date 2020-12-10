@@ -15,6 +15,7 @@ UPDATE Score_Details SET player_id = (SELECT id FROM Player WHERE Player.Fname =
 SELECT * FROM SixNations.Youngest_Players;
 SELECT * FROM Country_Captain_Coach LIMIT 6;
 SELECT * FROM SixNations.Country_and_trophy;
+SELECT * FROM SixNations. Players_of_Matches;
 
 /*Find out the number of tries scored before half time*/
 SELECT score_type,COUNT(*)

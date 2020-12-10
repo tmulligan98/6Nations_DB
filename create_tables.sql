@@ -5,7 +5,7 @@ USE SixNations;
 
 
 CREATE TABLE Country ( 
-country_name VARCHAR(20) NOT NULL, 
+country_name VARCHAR(255) NOT NULL, 
 abreviation CHAR(3) NOT NULL, 
 nickname VARCHAR (20),
 venue_id INT NOT NULL,
@@ -21,10 +21,10 @@ CONSTRAINT check_country_name CHECK
 
 CREATE TABLE Venue (
 id INT NOT NULL, 
-surface VARCHAR(20),
-city VARCHAR(20) NOT NULL,
-stadium_type VARCHAR(20),
-venue_name VARCHAR(50) NOT NULL,
+surface VARCHAR(255),
+city VARCHAR(255) NOT NULL,
+stadium_type VARCHAR(255),
+venue_name VARCHAR(255) NOT NULL,
 KEY(venue_name),
 PRIMARY KEY(id), 
 CONSTRAINT check_stadium_type CHECK 
@@ -33,21 +33,21 @@ CONSTRAINT check_stadium_type CHECK
 
 CREATE TABLE Referee (
 id INT NOT NULL AUTO_INCREMENT,
-Fname VARCHAR(50) DEFAULT NULL,
-Sname VARCHAR(50) DEFAULT NULL,
-country_of_birth VARCHAR(50) DEFAULT NULL,
+Fname VARCHAR(255) DEFAULT NULL,
+Sname VARCHAR(255) DEFAULT NULL,
+country_of_birth VARCHAR(255) DEFAULT NULL,
 age INT DEFAULT NULL CHECK (age >= 18),
 PRIMARY KEY(id));
 
 
 CREATE TABLE Player (
 id INT NOT NULL AUTO_INCREMENT, 
-Fname VARCHAR(50) NOT NULL,
-Sname VARCHAR(50) NOT NULL,
+Fname VARCHAR(255) NOT NULL,
+Sname VARCHAR(255) NOT NULL,
 country_id CHAR(3) NOT NULL, 
 date_of_birth DATE DEFAULT NULL, 
 caps INT,
-club VARCHAR(20) NOT NULL,
+club VARCHAR(50) NOT NULL,
 age INT NOT NULL CHECK (age >= 18),
 leadership VARCHAR(50) DEFAULT NULL,
 PRIMARY KEY (id)
@@ -65,11 +65,13 @@ score_hometeam TINYINT DEFAULT 0,
 score_awayteam TINYINT DEFAULT 0,
 referee_id INT NOT NULL,
 match_length TINYINT NOT NULL,
+player_of_the_match INT NOT NULL,
 PRIMARY KEY(id),
 FOREIGN KEY (venue_id) REFERENCES Venue(id),
 FOREIGN KEY (home_team_id) REFERENCES Country(abreviation),
 FOREIGN KEY (away_team_id) REFERENCES Country(abreviation),
-FOREIGN KEY (referee_id) REFERENCES Referee(id)
+FOREIGN KEY (referee_id) REFERENCES Referee(id),
+FOREIGN KEY (player_of_the_match) REFERENCES Player(id)
 ); /* Given current circumstances, there's no knowing where a game will be hosted*/
 /*Fields can be null for match scheduled ahead of time without knowledge of certain attributes*/
 

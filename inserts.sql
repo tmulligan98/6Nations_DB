@@ -76,17 +76,31 @@ VALUES("Romain", "Ntamack", "FRA", "1999-05-1", NULL, "Toulouse", 21, NULL);
 INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
 VALUES("Dan", "Biggar", "WAL", "1989-10-16", 79, "Northampton", 31, "vice-captain");
 
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
+VALUES("Justin", "Tipuric", "WAL", "1989-08-6", NULL, "Ospreys", 31, NULL);
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
+VALUES("CJ", "Stander", "IRE", "1990-04-5", NULL, "Munster", 30, NULL);
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
+VALUES("Justin", "Tipuric", "WAL", "1989-08-6", NULL, "Ospreys", 31, NULL);
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
+VALUES("Gregory", "Aldritt", "FRA", "1997-03-23", NULL, "Toulouse", 23, NULL);
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
+VALUES("Sam", "Underhill", "ENG", "1996-07-22", NULL, "Bath", 24, NULL);
+INSERT INTO Player(Fname, Sname, country_id, date_of_birth, caps, club, age, leadership) 
+VALUES("Hamish", "Watson", "SCO", "1991-10-15", NULL, "Edinburgh", 29, NULL);
+
+
 
 /*Rugby Match*/
 
-INSERT INTO Rugby_Match VALUES(1111, 113, "WAL", "ITA",  "2020-02-1 14:15:00", 42, 0, 1, 80);
-INSERT INTO Rugby_Match VALUES(1112, 111, "IRE", "SCO",  "2020-02-1 16:45:00", 19, 12, 2, 80);
-INSERT INTO Rugby_Match VALUES(1113, 116, "FRA", "ENG",  "2020-02-2 15:00:00", 24, 17, 3, 80);
-INSERT INTO Rugby_Match VALUES(1114, 111, "IRE", "WAL",  "2020-02-8 14:15:00", 24, 14, 4, 80);
-INSERT INTO Rugby_Match VALUES(1115, 114, "SCO", "ENG",  "2020-02-8 16:45:00", 6, 13, 5, 80);
-INSERT INTO Rugby_Match VALUES(1116, 113, "FRA", "ITA",  "2020-02-9 15:00:00", 35, 22, 6, 80);
-INSERT INTO Rugby_Match VALUES(1117, 113, "ITA", "SCO",  "2020-02-22 14:15:00", 0, 17, 7, 80);
-INSERT INTO Rugby_Match VALUES(1118, 113, "WAL", "FRA",  "2020-02-22 16:45:00", 23, 27, 8, 80);
+INSERT INTO Rugby_Match VALUES(1111, 113, "WAL", "ITA",  "2020-02-1 14:15:00", 42, 0, 1, 80, 13);
+INSERT INTO Rugby_Match VALUES(1112, 111, "IRE", "SCO",  "2020-02-1 16:45:00", 19, 12, 2, 80, 14);
+INSERT INTO Rugby_Match VALUES(1113, 116, "FRA", "ENG",  "2020-02-2 15:00:00", 24, 17, 3, 80, 15);
+INSERT INTO Rugby_Match VALUES(1114, 111, "IRE", "WAL",  "2020-02-8 14:15:00", 24, 14, 4, 80, 14);
+INSERT INTO Rugby_Match VALUES(1115, 114, "SCO", "ENG",  "2020-02-8 16:45:00", 6, 13, 5, 80, 16);
+INSERT INTO Rugby_Match VALUES(1116, 113, "FRA", "ITA",  "2020-02-9 15:00:00", 35, 22, 6, 80, 15);
+INSERT INTO Rugby_Match VALUES(1117, 113, "ITA", "SCO",  "2020-02-22 14:15:00", 0, 17, 7, 80, 16);
+INSERT INTO Rugby_Match VALUES(1118, 113, "WAL", "FRA",  "2020-02-22 16:45:00", 23, 27, 8, 80, 11);
 
 
 /*Coach*/

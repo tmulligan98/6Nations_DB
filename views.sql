@@ -15,3 +15,8 @@ WHERE Coach.coach_role = "Head Coach" AND Player.leadership = "captain";
 CREATE OR REPLACE VIEW Country_and_trophy(Country_name, Trophy_name) AS
 SELECT Country.country_name, Trophy.trophy_name FROM (Country, Trophy) 
 WHERE (Trophy.current_holder = Country.abreviation);
+
+
+CREATE OR REPLACE VIEW Players_of_matches(match_id, PlayerFname, PlayerSname) AS
+SELECT Rugby_Match.id, Player.Fname, Player.Sname FROM (Rugby_Match, Player)
+WHERE Rugby_Match.player_of_the_match = Player.id;
